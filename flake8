@@ -1,0 +1,20 @@
+[flake8]
+
+# E129 visually indented line with same indent as next logical line
+# E201 whitespace after '{'
+# E202 whitespace before '}'
+# E203 whitespace before ':'
+# E221 multiple spaces before operator
+# E222 multiple spaces after operator
+# E226 missing whitespace around arithmetic operator
+# E241 multiple spaces after ','
+# E251 unexpected spaces around keyword / parameter equals
+# E261 at least two spaces before inline comment
+# E272 multiple spaces before keyword
+# E302 expected 2 blank lines, found 1
+# E305 expected 2 blank lines after class or function definition
+# E402 module level import not at top of file
+# W391 blank line at end of file
+ignore = E129,E201,E202,E203,E221,E222,E226,E241,E251,E261,E272,E302,E305,E402,W391
+
+max-line-length = 200
