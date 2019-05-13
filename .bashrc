@@ -20,7 +20,6 @@ ls:\
 export PATH=\
 .:\
 ~/bin:\
-~/gitlab/kinetx_simulation/util/bin:\
 /usr/local/bin:\
 /usr/bin:\
 /bin:\
