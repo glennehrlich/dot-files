@@ -1,8 +1,9 @@
+#!/usr/bin/env bash
+
 # History settings
 export HISTCONTROL=ignoreboth
 export HISTFILESIZE=10000
 export HISTSIZE=10000
-# export HISTTIMEFORMAT="%F %T "
 export PROMPT_COMMAND="history -a"
 shopt -s cmdhist
 shopt -s histappend
