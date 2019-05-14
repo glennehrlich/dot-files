@@ -4,7 +4,6 @@
 export HISTCONTROL=ignoreboth
 export HISTFILESIZE=10000
 export HISTSIZE=10000
-export PROMPT_COMMAND="history -a"
 shopt -s cmdhist
 shopt -s histappend
 
@@ -17,6 +16,10 @@ export TERM=xterm-256color:\
 h:\
 ls:\
 "
+
+# Prompt settings.
+export PROMPT_COMMAND="history -a"
+export PS1="\n\u@\h:\w\n\\$ "
 
 # DISPLAY for displaying x11 clients on host computer.
 if dpkg -l ubuntu-desktop > /dev/null 2>&1; then
@@ -46,8 +49,8 @@ if [[ -f /etc/bash_completion ]]; then
 fi
 
 export PATH=\
-~/r/bin:\
-~/gitlab/kinetx_simulation/util/bin:\
+~/bin:\
+/opt/anaconda/bin:\
 $PATH
 
 # These are not necessary as scripts now by directly setting sys.path,
@@ -59,9 +62,6 @@ export PYTHONPATH=\
 ~/gitlab/kinetx_simulation/python-devs:\
 ~/gitlab/kinetx_forks/PythonPDEVS/src
 
-# Keep this comment in order to make sure the file ends properly.
-PATH=/opt/anaconda/bin:$PATH
-
 # Set the vm variables if the vm files exist.
 if [[ -e /vagrant/VM_HOME.txt ]]; then
     export VM_HOME=`cat /vagrant/VM_HOME.txt`
@@ -69,5 +69,3 @@ fi
 if [[ -e /vagrant/VM_REPO.txt ]]; then
     export VM_REPO=`cat /vagrant/VM_REPO.txt`
 fi
-
-export PS1="\n\u@\h:\w\n\\$ "
