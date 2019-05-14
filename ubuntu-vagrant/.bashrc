@@ -1,16 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # History settings
 export HISTFILESIZE=10000
 export HISTSIZE=10000
 shopt -s cmdhist
 shopt -s histappend
-
-# Prompt will look like this:
-# 
-# vagrant:~
-# $ <cursor here>
-# export PS1='\n\h:\w\n$ '
 
 # DISPLAY for displaying x11 clients on host computer.
 if dpkg -l ubuntu-desktop > /dev/null 2>&1; then
@@ -64,20 +58,3 @@ if [[ -e /vagrant/VM_REPO.txt ]]; then
     export VM_REPO=`cat /vagrant/VM_REPO.txt`
 fi
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/anaconda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/anaconda/etc/profile.d/conda.sh" ]; then
-        . "/opt/anaconda/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/anaconda/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-PROMPT_COMMAND="printf '\n'"
-export PS1="\h:\w\n$ "
