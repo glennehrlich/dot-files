@@ -1,10 +1,22 @@
 #!/usr/bin/env bash
 
 # History settings
+export HISTCONTROL=ignoreboth
 export HISTFILESIZE=10000
 export HISTSIZE=10000
+export PROMPT_COMMAND="history -a"
 shopt -s cmdhist
 shopt -s histappend
+
+export HISTIGNORE="\
+alias:\
+clear:\
+e:\
+exit:\
+export TERM=xterm-256color:\
+h:\
+ls:\
+"
 
 # DISPLAY for displaying x11 clients on host computer.
 if dpkg -l ubuntu-desktop > /dev/null 2>&1; then
@@ -58,3 +70,4 @@ if [[ -e /vagrant/VM_REPO.txt ]]; then
     export VM_REPO=`cat /vagrant/VM_REPO.txt`
 fi
 
+export PS1="\n\u@\h:\w\n\\$ "
