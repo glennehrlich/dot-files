@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Prompt settings.
+export PROMPT_COMMAND="history -a"
+export PS1="\n\u@\h:\w\n\\$ "
+
 # History settings
 export HISTCONTROL=ignoreboth
 export HISTFILESIZE=10000
@@ -16,10 +20,6 @@ export TERM=xterm-256color:\
 h:\
 ls:\
 "
-
-# Prompt settings.
-export PROMPT_COMMAND="history -a"
-export PS1="\n\u@\h:\w\n\\$ "
 
 # DISPLAY for displaying x11 clients on host computer.
 if dpkg -l ubuntu-desktop > /dev/null 2>&1; then
