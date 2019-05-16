@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 
+# Prompt settings.
+export PROMPT_COMMAND="history -a"
+export PS1="\n\u@\h:\w\n\\$ \[$(tput sgr0)\]"
+
 # History settings
 export HISTCONTROL=ignoreboth
 export HISTFILESIZE=10000
 export HISTSIZE=10000
-export PROMPT_COMMAND="history -a"
 shopt -s cmdhist
 shopt -s histappend
 
@@ -50,4 +53,3 @@ alias vs='vagrant ssh'
 alias vu='vagrant up'
 alias vus='vagrant up ; vagrant ssh'
 
-export PS1="\n\u@\h:\w\n\\$ \[$(tput sgr0)\]"
