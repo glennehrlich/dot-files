@@ -2,7 +2,7 @@
 
 # Prompt settings.
 export PROMPT_COMMAND="history -a"
-export PS1="\n\u@\h:\w\n\\$ \[$(tput sgr0)\]"
+export PS1="\n\u@\h:\w\n\\$ "
 
 # History settings
 export HISTCONTROL=ignoreboth
