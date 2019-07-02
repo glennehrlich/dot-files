@@ -50,7 +50,7 @@ fi
 
 export PATH=\
 ~/bin:\
-/opt/anaconda/bin:\
+/opt/conda/bin:\
 $PATH
 
 # These are not necessary as scripts now by directly setting sys.path,
