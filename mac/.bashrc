@@ -24,6 +24,7 @@ ls:\
 export PATH=\
 .:\
 ~/bin:\
+/opt/conda/bin:\
 /usr/local/bin:\
 /usr/local/sbin:\
 /usr/bin:\
