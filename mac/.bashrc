@@ -54,9 +54,13 @@ alias emacs=$EMACS
 alias gp="git_push.sh"
 alias gs="git_status.sh"
 alias h=history
+alias k=kubectl
 alias ls="ls -FG"
 alias vd="vagrant halt"
 alias vgs="vagrant global-status"
 alias vs="vagrant ssh"
 alias vu="vagrant up"
 alias vus="vagrant up ; vagrant ssh"
+
+# Make completion work on some aliases.
+complete -F __start_kubectl k
