@@ -24,7 +24,8 @@ ls:\
 export PATH=\
 .:\
 ~/bin:\
-/opt/conda/bin:\
+~/.local/bin:\
+/usr/local/opt/python/libexec/bin:\
 /usr/local/bin:\
 /usr/local/sbin:\
 /usr/bin:\
@@ -42,6 +43,11 @@ export EDITOR=$EMACS
 export VISUAL=$EMACS
 
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
+# powerline-daemon -q
+# POWERLINE_BASH_CONTINUATION=1
+# POWERLINE_BASH_SELECT=1
+# . ~/.local/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh 
 
 alias e="$EMACS &"
 alias emacs=$EMACS
