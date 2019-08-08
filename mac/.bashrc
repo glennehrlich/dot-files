@@ -24,8 +24,7 @@ ls:\
 export PATH=\
 .:\
 ~/bin:\
-~/.local/bin:\
-/usr/local/opt/python/libexec/bin:\
+/opt/conda/bin:\
 /usr/local/bin:\
 /usr/local/sbin:\
 /usr/bin:\
@@ -64,3 +63,8 @@ alias vus="vagrant up ; vagrant ssh"
 
 # Make completion work on some aliases.
 complete -F __start_kubectl k
+
+export PYTHONPATH=\
+~/gitlab/kinetx_simulation/python:\
+~/gitlab/kinetx_simulation/python-devs:\
+~/gitlab/kinetx_muos/sim/kinetx
