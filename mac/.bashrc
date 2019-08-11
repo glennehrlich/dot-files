@@ -64,6 +64,12 @@ alias vus="vagrant up ; vagrant ssh"
 # Make completion work on some aliases.
 complete -F __start_kubectl k
 
+# Rewrite cd so that directory tracking works in vterm.
+cd() {
+  builtin cd "$@" || return
+  [ "$OLDPWD" = "$PWD" ] || echo -e "\e]51;A$(pwd)\e\\"
+}
+
 export PYTHONPATH=\
 ~/gitlab/kinetx_simulation/python:\
 ~/gitlab/kinetx_simulation/python-devs:\
