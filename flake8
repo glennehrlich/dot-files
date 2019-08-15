@@ -15,6 +15,7 @@
 # E305 expected 2 blank lines after class or function definition
 # E402 module level import not at top of file
 # W391 blank line at end of file
-ignore = E129,E201,E202,E203,E221,E222,E226,E241,E251,E261,E272,E302,E305,E402,W391
+# W503 line break before binary operator
+ignore = E129,E201,E202,E203,E221,E222,E226,E241,E251,E261,E272,E302,E305,E402,W391,W503
 
-max-line-length = 200
+max-line-length = 300
