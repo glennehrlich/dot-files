@@ -71,6 +71,4 @@ cd() {
 }
 
 export PYTHONPATH=\
-~/gitlab/kinetx_simulation/python:\
-~/gitlab/kinetx_simulation/python-devs:\
-~/gitlab/kinetx_muos/sim/kinetx
+~/gitlab/kinetx_muos/sim/lib
