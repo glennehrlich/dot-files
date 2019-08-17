@@ -36,7 +36,12 @@ export NO_AT_BRIDGE=1
 # like gnome-terminal and gnome-system-monitor work correctly.
 export $(dbus-launch)
 
-export EMACS=/usr/bin/emacs
+if [[ -e /usr/local/bin/emacs ]]; then
+    export EMACS=/usr/local/bin/emacs
+elif which emacs; then
+    export EMACS=`which emacs`
+fi
+
 export EDITOR=$EMACS
 export VISUAL=$EMACS
 
