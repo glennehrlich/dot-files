@@ -55,8 +55,8 @@ fi
 
 export PATH=\
 ~/bin:\
-/opt/conda/bin:\
-$PATH
+$PATH:\
+/opt/conda/bin
 
 # These are not necessary as scripts now by directly setting sys.path,
 # however these are necessary for emacs to find definitions. If I
