@@ -74,3 +74,9 @@ fi
 if [[ -e /vagrant/VM_REPO.txt ]]; then
     export VM_REPO=`cat /vagrant/VM_REPO.txt`
 fi
+
+# Rewrite cd so that directory tracking works in vterm.
+cd() {
+  builtin cd "$@" || return
+  [ "$OLDPWD" = "$PWD" ] || echo -e "\e]51;A$(pwd)\e\\"
+}
