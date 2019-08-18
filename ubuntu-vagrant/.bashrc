@@ -62,10 +62,12 @@ $PATH:\
 # however these are necessary for emacs to find definitions. If I
 # start getting unexpected results, like picking up weird versions of
 # code, then comment this out.
+# export PYTHONPATH=\
+# ~/gitlab/kinetx_simulation/python:\
+# ~/gitlab/kinetx_simulation/python-devs:\
+# ~/gitlab/kinetx_forks/PythonPDEVS/src
 export PYTHONPATH=\
-~/gitlab/kinetx_simulation/python:\
-~/gitlab/kinetx_simulation/python-devs:\
-~/gitlab/kinetx_forks/PythonPDEVS/src
+~/gitlab/kinetx_muos/sim/lib
 
 # Set the vm variables if the vm files exist.
 if [[ -e /vagrant/VM_HOME.txt ]]; then
