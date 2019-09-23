@@ -1,3 +1,5 @@
 [user]
 	name = Glenn Ehrlich
 	email = glenn.ehrlich@kinetx.com
+[core]
+	excludesfile = /Users/glenn/.gitignore
