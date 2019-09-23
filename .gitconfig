@@ -3,3 +3,5 @@
 	email = glenn.ehrlich@kinetx.com
 [core]
 	excludesfile = /Users/glenn/.gitignore
+[alias]
+	l = log --all --decorate --oneline --graph
