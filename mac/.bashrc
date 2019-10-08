@@ -31,7 +31,8 @@ export PATH=\
 /bin:\
 /usr/sbin:\
 /sbin:\
-/opt/X11/bin
+/opt/X11/bin:\
+/Library/Frameworks/Mono.framework/Versions/Current/bin
 
 export MANPATH=\
 /usr/local/share/man:\
