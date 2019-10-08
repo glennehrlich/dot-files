@@ -1,6 +1,6 @@
 {
-    "always_move": false,
-    "always_rename": false,
+    "always_move": true,
+    "always_rename": true,
     "batch": false,
     "custom_filename_character_blacklist": "",
     "dry_run": false,
@@ -51,7 +51,7 @@
     "leave_symlink": false,
     "lowercase_filename": false,
     "move_files_confirmation": true,
-    "move_files_destination": ".",
+    "move_files_destination": "/Volumes/Media/TV Shows/%(seriesname)s/Season %(seasonnumber)02d", 
     "move_files_destination_date": ".",
     "move_files_destination_is_filepath": false,
     "move_files_enable": false,
