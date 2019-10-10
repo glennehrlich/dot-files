@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Prompt settings.
 export PROMPT_COMMAND="history -a"
@@ -22,11 +22,7 @@ ls:\
 "
 
 # DISPLAY for displaying x11 clients on host computer.
-if dpkg -l ubuntu-desktop > /dev/null 2>&1; then
-    export DISPLAY=:0             # if running in ubuntu desktop
-else 
-    export DISPLAY=localhost:10.0 # if running under ssh'd x11
-fi
+export DISPLAY=localhost:10.0
 
 # Turn off accessibility errors and libGL errors when launching X11
 # applications.
@@ -53,21 +49,25 @@ if [[ -f /etc/bash_completion ]]; then
     . /etc/bash_completion
 fi
 
+# Set permisions to:
+# dir:  rwxrwxrwx
+# file: rw-rw-rw-
+umask 0
+
 export PATH=\
 ~/bin:\
-$PATH:\
-/opt/conda/bin
+$PATH
 
-# These are not necessary as scripts now by directly setting sys.path,
-# however these are necessary for emacs to find definitions. If I
-# start getting unexpected results, like picking up weird versions of
-# code, then comment this out.
-# export PYTHONPATH=\
-# ~/gitlab/kinetx_simulation/python:\
-# ~/gitlab/kinetx_simulation/python-devs:\
-# ~/gitlab/kinetx_forks/PythonPDEVS/src
-export PYTHONPATH=\
-~/gitlab/kinetx_muos/sim/lib
+# To properly build the bar application using apache ant as installed
+# with provision_ant.sh, we need to set ANT_HOME so all the ant
+# infrastructure works correctly.
+export ANT_HOME=/opt/ant
+
+# Make sure the extra python stuff in rh is enabled.
+source scl_source enable python27
+
+# Make sure the python path for anaconda development is set.
+export PYTHONPATH=/usr/lib64/python2.7/site-packages:/usr/lib/python2.7/site-packages:$PYTHONPATH
 
 # Set the vm variables if the vm files exist.
 if [[ -e /vagrant/VM_HOME.txt ]]; then
@@ -76,9 +76,3 @@ fi
 if [[ -e /vagrant/VM_REPO.txt ]]; then
     export VM_REPO=`cat /vagrant/VM_REPO.txt`
 fi
-
-# Rewrite cd so that directory tracking works in vterm.
-cd() {
-  builtin cd "$@" || return
-  [ "$OLDPWD" = "$PWD" ] || echo -e "\e]51;A$(pwd)\e\\"
-}
