@@ -63,11 +63,14 @@ $PATH
 # infrastructure works correctly.
 export ANT_HOME=/opt/ant
 
-# Make sure the extra python stuff in rh is enabled.
-source scl_source enable python27
+# If we installed scl, then set it up.
+if /usr/bin/which scl_source > /dev/null 2>&1; then
+    # Make sure the extra python stuff in rh is enabled.
+    source scl_source enable python27
 
-# Make sure the python path for anaconda development is set.
-export PYTHONPATH=/usr/lib64/python2.7/site-packages:/usr/lib/python2.7/site-packages:$PYTHONPATH
+    # Make sure the python path for anaconda development is set.
+    export PYTHONPATH=/usr/lib64/python2.7/site-packages:/usr/lib/python2.7/site-packages:$PYTHONPATH
+fi
 
 # Set the vm variables if the vm files exist.
 if [[ -e /vagrant/VM_HOME.txt ]]; then
