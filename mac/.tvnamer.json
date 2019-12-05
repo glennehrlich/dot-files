@@ -46,7 +46,9 @@
     "filename_without_episode_no_season": "%(seriesname)s - [%(episode)s]%(ext)s",
     "force_name": null,
     "input_filename_replacements": [],
-    "input_series_replacements": {},
+    "input_series_replacements": {
+        "seal team" : 328686, "SEAL Team" : 328686
+    },
     "language": "en",
     "leave_symlink": false,
     "lowercase_filename": false,
