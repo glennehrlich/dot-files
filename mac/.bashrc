@@ -26,7 +26,7 @@ export PATH=\
 ~/bin:\
 /usr/local/bin:\
 /usr/local/sbin:\
-/opt/conda/bin:\
+~/opt/anaconda3/bin:\
 /usr/bin:\
 /bin:\
 /usr/sbin:\
