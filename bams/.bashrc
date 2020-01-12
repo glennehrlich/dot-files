@@ -43,7 +43,8 @@ export VISUAL=$EMACS
 
 alias e="emacs &"
 alias h=history
-alias ls='ls --color -FG'
+# alias ls='ls --color -FG' # color does not work in vterm under redhat emacs
+alias ls='ls -FG'
 
 if [[ -f /etc/bash_completion ]]; then
     . /etc/bash_completion
