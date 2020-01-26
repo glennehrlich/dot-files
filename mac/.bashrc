@@ -74,6 +74,3 @@ cd() {
 
 export PYTHONPATH=\
 ~/gitlab/kinetx_muos/sim/lib
-
-# Homebrew github api token (see passwords.org)
-export HOMEBREW_GITHUB_API_TOKEN=4df443a18db87d82204336e0499e92c9724e5b56
