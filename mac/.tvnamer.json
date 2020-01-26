@@ -47,7 +47,8 @@
     "force_name": null,
     "input_filename_replacements": [],
     "input_series_replacements": {
-        "seal team" : 328686, "SEAL Team" : 328686
+        "seal team" : 328686, "SEAL Team" : 328686,
+        "doctor who" : 78804
     },
     "language": "en",
     "leave_symlink": false,
