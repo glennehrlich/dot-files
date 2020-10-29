@@ -2,7 +2,8 @@
 
 # Prompt settings.
 export PROMPT_COMMAND="history -a"
-export PS1="\n\u@\h:\w\n\\$ "
+# export PS1="\n\u@\h:\w\n\\$ "
+export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # History settings
 export HISTCONTROL=ignoreboth
@@ -21,13 +22,11 @@ h:\
 ls:\
 "
 
-export PATH=\
-$PATH:\
-~/bin
-
 export EMACS=emacs
 export EDITOR=$EMACS
 export VISUAL=$EMACS
+
+# export NO_AT_BRIDGE=1
 
 alias e="$EMACS &"
 alias h=history
@@ -44,7 +43,7 @@ cd() {
 }
 
 # vterm integration support; from vterm README.md
-function vterm_printf(){
+vterm_printf(){
     if [ -n "$TMUX" ]; then
         # Tell tmux to pass the escape sequences through
         # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
