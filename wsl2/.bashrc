@@ -31,6 +31,7 @@ export VISUAL=$EMACS
 alias e="$EMACS &"
 alias h=history
 alias ls='ls --color -FG'
+alias mg="pushd ~ ; mgitstatus -d 0 ; popd"
 
 if [[ -f /etc/bash_completion ]]; then
     . /etc/bash_completion
