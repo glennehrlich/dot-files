@@ -26,7 +26,7 @@ export EMACS=emacs
 export EDITOR=$EMACS
 export VISUAL=$EMACS
 
-# export NO_AT_BRIDGE=1
+export NO_AT_BRIDGE=1
 
 alias e="$EMACS &"
 alias h=history
