@@ -59,3 +59,4 @@ export EDITOR=$EMACS
 alias e="$EMACS &"
 source ~/.emacs-vterm-bash.sh
 source /etc/profile.d/bash_completion.sh
+export PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/glenn-bin
