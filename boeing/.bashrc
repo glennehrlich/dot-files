@@ -52,3 +52,10 @@ export AGS_HMI=${AGS_HOME}/AGS-HMI
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+# glenn stuff
+export EMACS=/usr/local/bin/emacs
+export EDITOR=$EMACS
+alias e="$EMACS &"
+source ~/.emacs-vterm-bash.sh
+source /etc/profile.d/bash_completion.sh
