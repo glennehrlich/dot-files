@@ -60,3 +60,9 @@ alias e="$EMACS &"
 source ~/.emacs-vterm-bash.sh
 source /etc/profile.d/bash_completion.sh
 export PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/glenn-bin
+
+# Make keyboard repeat be a bit faster.
+xset r rate 250 25
+
+# Turn off bell.
+xset -b b 0
