@@ -62,7 +62,10 @@ source /etc/profile.d/bash_completion.sh
 export PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/glenn-bin
 
 # Make keyboard repeat be a bit faster.
-xset r rate 250 25
+xset r rate 250 30 # when working in actual vm & desktop
+# xset r rate 800 20 # this seems to work but is a litte faster to start
+# xset r rate 1000 20 # this works
+# xset r rate 250 25 # too fast, counsel-rg messes up
 
 # Turn off bell.
 xset -b b 0
