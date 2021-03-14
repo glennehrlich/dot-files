@@ -60,6 +60,7 @@ alias e="$EMACS &"
 source ~/.emacs-vterm-bash.sh
 source /etc/profile.d/bash_completion.sh
 export PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/glenn-bin
+export PATH=$PATH:/opt/intellij/bin
 
 # Make keyboard repeat be a bit faster.
 xset r rate 250 30 # when working in actual vm & desktop
