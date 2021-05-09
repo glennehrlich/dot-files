@@ -69,3 +69,5 @@ vterm_prompt_end(){
 PS1=$PS1'\[$(vterm_prompt_end)\]'
 
 export DISPLAY=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}'):0.0
+
+xset r rate 250 50
