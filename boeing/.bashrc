@@ -70,3 +70,6 @@ xset r rate 250 30 # when working in actual vm & desktop
 
 # Turn off bell.
 xset -b b 0
+
+# Additional aliases
+alias sshdev="ssh -p 1123 gehrlich@localhost"
