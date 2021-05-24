@@ -1,75 +1,61 @@
-# .bashrc
+#!/usr/bin/env bash
 
-# define gvim as my editor
-export EDITOR=gvim
+# Source the original ubuntu .bashrc.
+source ~/dot-files/boeing/.bashrc.ubuntu
 
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-   . /etc/bashrc
-fi
+# Prompt settings.
+export PROMPT_COMMAND="history -a"
 
-if [ -f ~/.bash_functions ]; then
-   . ~/.bash_functions
-fi
+# History settings
+export HISTCONTROL=ignoreboth
+export HISTFILESIZE=10000
+export HISTSIZE=10000
+shopt -s cmdhist
+shopt -s histappend
 
-if [ -f ~/.bashrc_personal ]; then
-   . ~/.bashrc_personal
-fi
+export HISTIGNORE="\
+alias:\
+clear:\
+e:\
+exit:\
+export TERM=xterm-256color:\
+h:\
+ls:\
+"
 
-export JDK_1_7_HOME=/usr/java/jdk1.7.0_80
-export JDK_1_8_HOME=/usr/java/jdk1.8.0_144
-export JAVA_HOME=${JDK_1_8_HOME}
-export TOMCAT_HOME=$HOME/local/apache-tomcat
-export TOMCAT_HOME=$HOME/local/apache-tomcat
-export CATALINA_HOME=$TOMCAT_HOME
-export ACTIVEMQ_URL="tcp://localhost:61616"
-export ANT_HOME=/opt/apache-ant
-export M2_HOME=/opt/apache-maven
-export ACTIVEMQ_HOME=/opt/apache-activemq
-export SOAPUI_HOME=/opt/SoapUI
-
-
-addPath ${M2_HOME}/bin
-addPath ${ACTIVEMQ_HOME}/bin
-addPath ${ANT_HOME}/bin
-addPath ${SOAPUI_HOME}/bin 
-addPath /opt/cisco/vpn/bin
-addPath /opt/cisco/anyconnect/bin
-alias vpn=/opt/cisco/anyconnect/bin/vpnui
-# note /local/eclipse is a symbolic link. Change it to
-# point to a different eclipse verision if you like
-addPath $HOME/local/eclipse
-addPath $HOME/local/netbeans/bin
-addPath $HOME/local/apache-tomcat/bin
-
-# Environment variables for AGS code install
-export AGS_HOME=${HOME}/projects/ags/code
-export AGS_SERVICES=${AGS_HOME}/AGS-SERVICES
-export DOCKER_SERVICES=${AGS_SERVICES}/DockerServices
-export AGS_DB=${AGS_HOME}/AGS-DB
-export AGS_HMI=${AGS_HOME}/AGS-HMI
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-# glenn stuff
-export EMACS=/usr/local/bin/emacs
+export EMACS=emacs
 export EDITOR=$EMACS
+export VISUAL=$EMACS
+
 alias e="$EMACS &"
-source ~/.emacs-vterm-bash.sh
-source /etc/profile.d/bash_completion.sh
-export PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/glenn-bin
-export PATH=$PATH:/opt/intellij/bin
+alias h=history
+alias ls='ls --color -FG'
 
-# Make keyboard repeat be a bit faster.
-xset r rate 250 30 # when working in actual vm & desktop
-# xset r rate 800 20 # this seems to work but is a litte faster to start
-# xset r rate 1000 20 # this works
-# xset r rate 250 25 # too fast, counsel-rg messes up
+# vterm integration support; from vterm README.md
+vterm_printf(){
+    if [ -n "$TMUX" ] && ([ "${TERM%%-*}" = "tmux" ] || [ "${TERM%%-*}" = "screen" ] ); then
+        # Tell tmux to pass the escape sequences through
+        printf "\ePtmux;\e\e]%s\007\e\\" "$1"
+    elif [ "${TERM%%-*}" = "screen" ]; then
+        # GNU screen (screen, screen-256color, screen-256color-bce)
+        printf "\eP\e]%s\007\e\\" "$1"
+    else
+        printf "\e]%s\e\\" "$1"
+    fi
+}
 
-# Turn off bell.
-xset -b b 0
+if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
+    function clear(){
+        vterm_printf "51;Evterm-clear-scrollback";
+        tput clear;
+    }
+fi
 
-# Additional aliases
-alias sshdev="ssh -p 1123 gehrlich@localhost"
+vterm_prompt_end(){
+    vterm_printf "51;A$(whoami)@$(hostname):$(pwd)"
+}
+if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
+    PS1=$PS1'\[$(vterm_prompt_end)\]'
+fi
+
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
