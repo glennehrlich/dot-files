@@ -28,6 +28,7 @@ export EDITOR=$EMACS
 export VISUAL=$EMACS
 
 alias e="$EMACS &"
+alias gl='git log --graph --oneline --decorate'
 alias h=history
 alias ls='ls --color -FG'
 
